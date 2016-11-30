@@ -1,0 +1,36 @@
+/*
+ * Listens on Multicast IP and PORT
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+#include "multicast.h"
+
+int main()
+{
+    struct sockaddr_in localAddr;
+    int sock_fd;
+
+    /*fill local address*/
+    memset(&localAddr, 0, sizeof(struct sockaddr_in));
+    localAddr.sin_family = AF_INET;
+    localAddr.sin_addr.s_addr = inet_addr(M_CAST_IP);
+    localAddr.sin_port = htons(M_CAST_PORT);
+
+    /* create socket */
+    sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if(sock_fd  <= 0)
+    {
+        printf("socket() : cannot create socket %u", sock_fd);
+        exit(-1);
+    }
+
+    /* bind socket to localAddr */
+
+
+}
