@@ -1,0 +1,3 @@
+use :
+- pointer to vector
+- benefit of vector.reserve()
