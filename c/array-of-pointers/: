@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <unistd.h>
+
+typedef struct BucketS 
+{
+    void* key;
+    void* data;
+    struct BucketS* next;
+} Bucket;
+
+int main()
+{
+    Bucket* b = malloc(sizeof(Bucket));
+
+    b->key  = malloc(sizeof(int));
+}
